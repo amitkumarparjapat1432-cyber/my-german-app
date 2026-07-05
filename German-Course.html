@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🇩🇪 German Master - 275 Sentences</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #e8f0fe 0%, #d4e4f7 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 60px rgba(0, 20, 40, 0.20);
+            padding: 25px 30px 40px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #eef3f9;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+        .header-left h1 {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1a2b4a;
+        }
+        .header-left h1 span {
+            color: #d32f2f;
+        }
+        .header-left .sub {
+            font-size: 13px;
+            color: #5a7a9a;
+            font-weight: 500;
+        }
+        .stats {
+            display: flex;
+            gap: 20px;
+            background: #f0f6fe;
+            padding: 6px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a3a5c;
+            flex-wrap: wrap;
+        }
+        .stats span {
+            color: #0b5ca3;
+        }
+        .progress-badge {
+            background: #0b5ca3;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ===== SECTION TABS ===== */
+        .section-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            border-bottom: 2px solid #eef3f9;
+            padding-bottom: 10px;
+        }
+        .section-tab {
+            padding: 8px 22px;
+            border: 2px solid #d3e0ee;
+            border-radius: 40px;
+            background: white;
+            font-weight: 700;
+            font-size: 14px;
+            color: #1f3b5c;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .section-tab:hover {
+            background: #e6effa;
+            border-color: #8bb3dd;
+        }
+        .section-tab.active {
+            background: #1a4b7a;
+            border-color: #1a4b7a;
+            color: white;
+        }
+        .section-tab .badge {
+            background: #e53935;
+            color: white;
+            padding: 0 8px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-left: 6px;
+        }
+        .section-tab.active .badge {
+            background: #ff8a80;
+        }
+
+        /* ===== CONTROLS ===== */
+        .controls-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 16px;
+            background: #f8faff;
+            padding: 10px 16px;
+            border-radius: 16px;
+            border: 1px solid #e5edf6;
+        }
+        .toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #1f3b5c;
+            cursor: pointer;
+        }
+        .toggle-label input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #1a4b7a;
+            cursor: pointer;
+        }
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-left: auto;
+        }
+        .topic-tag {
+            background: #eef3fa;
+            padding: 4px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1f3b5c;
+            border: 1px solid transparent;
+        }
+        .topic-tag.active {
+            background: #1a4b7a;
+            color: white;
+            border-color: #1a4b7a;
+        }
+
+        /* ===== PART NAV ===== */
+        .part-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .part-btn {
+            padding: 6px 14px;
+            border: 2px solid #d3e0ee;
+            border-radius: 40px;
+            background: white;
+            font-weight: 600;
+            font-size: 12px;
+            color: #1f3b5c;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .part-btn:hover {
+            background: #e6effa;
+            border-color: #8bb3dd;
+        }
+        .part-btn.active {
+            background: #1a4b7a;
+            border-color: #1a4b7a;
+            color: white;
+        }
+        .part-btn .check {
+            color: #2e7d32;
+            margin-left: 5px;
+        }
+        .part-btn.active .check {
+            color: #a5d6a7;
+        }
+        .part-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #11253e;
+            margin: 4px 0 2px;
+        }
+        .part-desc {
+            color: #4d627c;
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+
+        /* ===== SENTENCE CARDS ===== */
+        .sentence-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .sentence-grid::-webkit-scrollbar {
+            width: 6px;
+        }
+        .sentence-grid::-webkit-scrollbar-thumb {
+            background: #c1d4e8;
+            border-radius: 10px;
+        }
+
+        .sentence-card {
+            display: grid;
+            grid-template-columns: 38px 1fr 1.2fr 50px 50px;
+            align-items: center;
+            background: #fafcff;
+            border: 1.5px solid #e5edf6;
+            border-radius: 12px;
+            padding: 6px 12px 6px 10px;
+            transition: 0.15s;
+            gap: 8px;
+        }
+        .sentence-card.correct {
+            background: #edf7ed;
+            border-color: #8bc34a;
+        }
+        .sentence-card.incorrect {
+            background: #ffefef;
+            border-color: #ef9a9a;
+        }
+        .sentence-card .num {
+            font-weight: 700;
+            color: #6c86a3;
+            font-size: 13px;
+            text-align: center;
+        }
+        .sentence-card .eng {
+            font-weight: 500;
+            color: #1e334f;
+            font-size: 14px;
+        }
+        .sentence-card .eng .topic-badge {
+            font-size: 10px;
+            background: #eef3fa;
+            padding: 1px 8px;
+            border-radius: 20px;
+            margin-left: 6px;
+            font-weight: 600;
+            color: #4d627c;
+        }
+        .sentence-card .eng .qa-badge {
+            font-size: 10px;
+            background: #e8f0fe;
+            padding: 1px 8px;
+            border-radius: 20px;
+            margin-left: 6px;
+            font-weight: 600;
+            color: #1a4b7a;
+        }
+        .sentence-card .german-input {
+            padding: 6px 10px;
+            border: 2px solid #d3e0ee;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: 0.2s;
+            width: 100%;
+            background: white;
+        }
+        .sentence-card .german-input:focus {
+            outline: none;
+            border-color: #1a4b7a;
+            box-shadow: 0 0 0 3px rgba(26, 75, 122, 0.12);
+        }
+        .sentence-card .german-input.correct {
+            border-color: #4caf50;
+            background: #f1f9f1;
+        }
+        .sentence-card .german-input.incorrect {
+            border-color: #e53935;
+            background: #fff4f4;
+        }
+        .sentence-card .german-input:disabled {
+            opacity: 0.7;
+        }
+        .sentence-card .german-input.show-mode {
+            border-color: #ff9800;
+            background: #fff8e1;
+        }
+        .sentence-card .btn-speak {
+            background: #eef3fa;
+            border: none;
+            border-radius: 40px;
+            width: 38px;
+            height: 38px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sentence-card .btn-speak:hover {
+            background: #d4e2f5;
+            transform: scale(1.05);
+        }
+        .sentence-card .btn-speak:active {
+            transform: scale(0.94);
+        }
+        .sentence-card .status-icon {
+            font-size: 20px;
+            text-align: center;
+        }
+        .sentence-card .show-answer {
+            font-size: 12px;
+            color: #1a4b7a;
+            background: #eef3fa;
+            padding: 2px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .sentence-card .show-answer:hover {
+            background: #d4e2f5;
+        }
+        .sentence-card .answer-reveal {
+            font-size: 13px;
+            color: #0b5ca3;
+            font-weight: 600;
+            background: #eef6ff;
+            padding: 2px 10px;
+            border-radius: 20px;
+            display: none;
+        }
+        .sentence-card .answer-reveal.show {
+            display: inline-block;
+        }
+        .sentence-card .qa-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1a4b7a;
+            background: #e8f0fe;
+            padding: 2px 10px;
+            border-radius: 20px;
+        }
+        .sentence-card .question-mark {
+            color: #e53935;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 2px solid #eef3f9;
+            gap: 12px;
+        }
+        .btn-reset {
+            background: #f0f4fa;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 13px;
+            color: #1f3b5c;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-reset:hover {
+            background: #dce6f2;
+        }
+        .btn-check-all {
+            background: #1a4b7a;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-check-all:hover {
+            background: #0f3b60;
+        }
+        .part-complete-msg {
+            font-weight: 600;
+            color: #2e7d32;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 820px) {
+            .app-container {
+                padding: 15px;
+            }
+            .sentence-card {
+                grid-template-columns: 30px 1fr;
+                grid-template-rows: auto auto auto;
+                gap: 5px 6px;
+                padding: 10px;
+            }
+            .sentence-card .num {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            .sentence-card .eng {
+                grid-row: 1;
+                grid-column: 2;
+            }
+            .sentence-card .german-input {
+                grid-row: 2;
+                grid-column: 1 / span 2;
+            }
+            .sentence-card .btn-speak {
+                grid-row: 1;
+                grid-column: 3;
+                justify-self: end;
+            }
+            .sentence-card .status-icon {
+                grid-row: 1;
+                grid-column: 4;
+            }
+            .sentence-card .show-answer {
+                grid-row: 3;
+                grid-column: 1;
+                font-size: 11px;
+                padding: 2px 8px;
+            }
+            .sentence-card .answer-reveal {
+                grid-row: 3;
+                grid-column: 2;
+                font-size: 12px;
+            }
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+            }
+            .stats {
+                justify-content: space-around;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .controls-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .topic-tags {
+                margin-left: 0;
+                justify-content: center;
+            }
+            .section-tabs {
+                flex-wrap: wrap;
+            }
+            .section-tab {
+                flex: 1;
+                min-width: 120px;
+                text-align: center;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+        @media (max-width: 480px) {
+            .part-btn {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+            .sentence-card .eng {
+                font-size: 12px;
+            }
+            .sentence-card .german-input {
+                font-size: 12px;
+                padding: 5px 8px;
+            }
+            .sentence-grid {
+                max-height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container" id="app">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-left">
+                <h1>🇩🇪 German <span>Master</span></h1>
+                <div class="sub">275 sentences • 10 parts + Self-Introduction • Writing practice</div>
+            </div>
+            <div class="stats">
+                <span>✅ <span id="correctCount">0</span></span>
+                <span>📝 <span id="totalCount">0</span>/275</span>
+                <span class="progress-badge" id="progressPercent">0%</span>
+            </div>
+        </div>
+
+        <!-- SECTION TABS -->
+        <div class="section-tabs" id="sectionTabs">
+            <button class="section-tab active" data-section="main">📚 Main Course <span class="badge">250</span></button>
+            <button class="section-tab" data-section="intro">👤 Self-Introduction <span class="badge">25</span></button>
+        </div>
+
+        <!-- CONTROLS -->
+        <div class="controls-row">
+            <label class="toggle-label">
+                <input type="checkbox" id="showAnswersToggle" />
+                👁️ Show answers (writing practice mode)
+            </label>
+            <label class="toggle-label">
+                <input type="checkbox" id="autoSpeakToggle" checked />
+                🔊 Auto-speak on check
+            </label>
+            <div class="topic-tags" id="topicTags">
+                <span class="topic-tag active">🍔 Food</span>
+                <span class="topic-tag active">💼 Work</span>
+                <span class="topic-tag active">👫 Friends</span>
+                <span class="topic-tag active">✈️ Travel</span>
+                <span class="topic-tag active">📚 Education</span>
+                <span class="topic-tag active">🏠 Daily</span>
+            </div>
+        </div>
+
+        <!-- PART NAV -->
+        <div class="part-nav" id="partNav"></div>
+
+        <!-- PART TITLE -->
+        <div class="part-title" id="partTitle">Part 1 – Words 1-10</div>
+        <div class="part-desc" id="partDesc">Basic vocabulary: food, work, friends, travel, education, daily life</div>
+
+        <!-- SENTENCES -->
+        <div class="sentence-grid" id="sentenceGrid"></div>
+
+        <!-- FOOTER -->
+        <div class="footer-actions">
+            <button class="btn-reset" id="resetPartBtn">🔄 Reset this part</button>
+            <div>
+                <span id="partCompleteMsg" class="part-complete-msg"></span>
+            </div>
+            <button class="btn-check-all" id="checkAllBtn">✔ Check all</button>
+        </div>
+    </div>
+
+    <script>
+        // ============================================================
+        //  DATA – 10 parts × 25 sentences = 250 + 25 Intro = 275
+        // ============================================================
+        const TOPICS = ['🍔 Food', '💼 Work', '👫 Friends', '✈️ Travel', '📚 Education', '🏠 Daily'];
+
+        function getTopic(index) {
+            return TOPICS[index % TOPICS.length];
+        }
+
+        // ===== SELF-INTRODUCTION Q&A (25) =====
+        const INTRO_QA = [
+            { q: 'What is your name?', a: 'Ich heiße [Name].', en: 'My name is [Name].' },
+            { q: 'How old are you?', a: 'Ich bin [Alter] Jahre alt.', en: 'I am [age] years old.' },
+            { q: 'Where do you live?', a: 'Ich wohne in [Stadt/Land].', en: 'I live in [city/country].' },
+            { q: 'What do you do? (job)', a: 'Ich arbeite als [Beruf].', en: 'I work as a [job].' },
+            { q: 'What are your hobbies?', a: 'Meine Hobbys sind [Hobbys].', en: 'My hobbies are [hobbies].' },
+            { q: 'Do you have siblings?', a: 'Ich habe [Anzahl] Geschwister.', en: 'I have [number] siblings.' },
+            { q: 'Are you married?', a: 'Ich bin verheiratet / ledig.', en: 'I am married / single.' },
+            { q: 'Do you have children?', a: 'Ich habe [Anzahl] Kinder.', en: 'I have [number] children.' },
+            { q: 'Where do you work?', a: 'Ich arbeite in [Firma/Stadt].', en: 'I work at [company/city].' },
+            { q: 'What do you study?', a: 'Ich studiere [Fach].', en: 'I study [subject].' },
+            { q: 'Where are you from?', a: 'Ich komme aus [Land/Stadt].', en: 'I come from [country/city].' },
+            { q: 'What languages do you speak?', a: 'Ich spreche [Sprachen].', en: 'I speak [languages].' },
+            { q: 'What is your favorite food?', a: 'Mein Lieblingsessen ist [Essen].', en: 'My favorite food is [food].' },
+            { q: 'What is your favorite music?', a: 'Meine Lieblingsmusik ist [Musik].', en: 'My favorite music is [music].' },
+            { q: 'Do you like sports?', a: 'Ja, ich mag [Sport]. / Nein, ich mag keinen Sport.', en: 'Yes, I like [sport]. / No, I don\'t like sports.' },
+            { q: 'What do you do on weekends?', a: 'Am Wochenende [Aktivität].', en: 'On weekends I [activity].' },
+            { q: 'Do you have pets?', a: 'Ich habe [Anzahl] Haustiere.', en: 'I have [number] pets.' },
+            { q: 'What is your phone number?', a: 'Meine Telefonnummer ist [Nummer].', en: 'My phone number is [number].' },
+            { q: 'What is your email?', a: 'Meine E-Mail ist [Email].', en: 'My email is [email].' },
+            { q: 'Where did you go to school?', a: 'Ich ging auf die [Schule].', en: 'I went to [school].' },
+            { q: 'What is your favorite color?', a: 'Meine Lieblingsfarbe ist [Farbe].', en: 'My favorite color is [color].' },
+            { q: 'Do you like to travel?', a: 'Ja, ich reise gerne. / Nein, ich reise nicht gerne.', en: 'Yes, I like to travel. / No, I don\'t like to travel.' },
+            { q: 'What is your dream job?', a: 'Mein Traumjob ist [Job].', en: 'My dream job is [job].' },
+            { q: 'What makes you happy?', a: '[Ding/Aktivität] macht mich glücklich.', en: '[Thing/activity] makes me happy.' },
+            { q: 'Tell me about yourself.', a: 'Ich bin [Name], [Alter] Jahre alt, und komme aus [Land]. Ich arbeite als [Beruf] und in meiner Freizeit [Hobby].',
+                en: 'I am [name], [age] years old, and come from [country]. I work as a [job] and in my free time [hobby].' }
+        ];
+
+        // ===== MAIN COURSE SENTENCES (250) =====
+        const MAIN_SENTENCES = [{
+            part: 1,
+            label: 'Words 1-10',
+            desc: 'Essential vocabulary – food, work, friends, travel, education, daily',
+            sentences: [
+                { en: 'bread', de: 'Brot', topic: '🍔 Food' },
+                { en: 'water', de: 'Wasser', topic: '🍔 Food' },
+                { en: 'coffee', de: 'Kaffee', topic: '🍔 Food' },
+                { en: 'apple', de: 'Apfel', topic: '🍔 Food' },
+                { en: 'milk', de: 'Milch', topic: '🍔 Food' },
+                { en: 'work', de: 'Arbeit', topic: '💼 Work' },
+                { en: 'office', de: 'Büro', topic: '💼 Work' },
+                { en: 'colleague', de: 'Kollege', topic: '💼 Work' },
+                { en: 'meeting', de: 'Besprechung', topic: '💼 Work' },
+                { en: 'project', de: 'Projekt', topic: '💼 Work' },
+                { en: 'friend', de: 'Freund', topic: '👫 Friends' },
+                { en: 'together', de: 'zusammen', topic: '👫 Friends' },
+                { en: 'party', de: 'Party', topic: '👫 Friends' },
+                { en: 'invite', de: 'einladen', topic: '👫 Friends' },
+                { en: 'help', de: 'helfen', topic: '👫 Friends' },
+                { en: 'travel', de: 'Reise', topic: '✈️ Travel' },
+                { en: 'hotel', de: 'Hotel', topic: '✈️ Travel' },
+                { en: 'ticket', de: 'Ticket', topic: '✈️ Travel' },
+                { en: 'airport', de: 'Flughafen', topic: '✈️ Travel' },
+                { en: 'vacation', de: 'Urlaub', topic: '✈️ Travel' },
+                { en: 'school', de: 'Schule', topic: '📚 Education' },
+                { en: 'teacher', de: 'Lehrer', topic: '📚 Education' },
+                { en: 'student', de: 'Student', topic: '📚 Education' },
+                { en: 'book', de: 'Buch', topic: '📚 Education' },
+                { en: 'exam', de: 'Prüfung', topic: '📚 Education' },
+            ]
+        }, {
+            part: 2,
+            label: 'Words 11-20',
+            desc: 'More vocabulary – daily life, work, food, travel, friends',
+            sentences: [
+                { en: 'house', de: 'Haus', topic: '🏠 Daily' },
+                { en: 'garden', de: 'Garten', topic: '🏠 Daily' },
+                { en: 'kitchen', de: 'Küche', topic: '🏠 Daily' },
+                { en: 'bedroom', de: 'Schlafzimmer', topic: '🏠 Daily' },
+                { en: 'bathroom', de: 'Badezimmer', topic: '🏠 Daily' },
+                { en: 'breakfast', de: 'Frühstück', topic: '🍔 Food' },
+                { en: 'lunch', de: 'Mittagessen', topic: '🍔 Food' },
+                { en: 'dinner', de: 'Abendessen', topic: '🍔 Food' },
+                { en: 'restaurant', de: 'Restaurant', topic: '🍔 Food' },
+                { en: 'menu', de: 'Speisekarte', topic: '🍔 Food' },
+                { en: 'manager', de: 'Manager', topic: '💼 Work' },
+                { en: 'deadline', de: 'Termin', topic: '💼 Work' },
+                { en: 'email', de: 'E-Mail', topic: '💼 Work' },
+                { en: 'phone call', de: 'Anruf', topic: '💼 Work' },
+                { en: 'team', de: 'Team', topic: '💼 Work' },
+                { en: 'hobby', de: 'Hobby', topic: '👫 Friends' },
+                { en: 'weekend', de: 'Wochenende', topic: '👫 Friends' },
+                { en: 'concert', de: 'Konzert', topic: '👫 Friends' },
+                { en: 'cinema', de: 'Kino', topic: '👫 Friends' },
+                { en: 'cafe', de: 'Café', topic: '👫 Friends' },
+                { en: 'map', de: 'Karte', topic: '✈️ Travel' },
+                { en: 'suitcase', de: 'Koffer', topic: '✈️ Travel' },
+                { en: 'passport', de: 'Reisepass', topic: '✈️ Travel' },
+                { en: 'beach', de: 'Strand', topic: '✈️ Travel' },
+                { en: 'mountain', de: 'Berg', topic: '✈️ Travel' },
+            ]
+        }, {
+            part: 3,
+            label: '2‑word: Food & Work',
+            desc: 'Common food and work phrases',
+            sentences: [
+                { en: 'hot coffee', de: 'heißer Kaffee', topic: '🍔 Food' },
+                { en: 'fresh bread', de: 'frisches Brot', topic: '🍔 Food' },
+                { en: 'cold milk', de: 'kalte Milch', topic: '🍔 Food' },
+                { en: 'sweet apple', de: 'süßer Apfel', topic: '🍔 Food' },
+                { en: 'good wine', de: 'guter Wein', topic: '🍔 Food' },
+                { en: 'hard work', de: 'harte Arbeit', topic: '💼 Work' },
+                { en: 'big office', de: 'großes Büro', topic: '💼 Work' },
+                { en: 'new project', de: 'neues Projekt', topic: '💼 Work' },
+                { en: 'important meeting', de: 'wichtige Besprechung', topic: '💼 Work' },
+                { en: 'good colleague', de: 'guter Kollege', topic: '💼 Work' },
+                { en: 'old friend', de: 'alter Freund', topic: '👫 Friends' },
+                { en: 'nice party', de: 'schöne Party', topic: '👫 Friends' },
+                { en: 'great weekend', de: 'tolles Wochenende', topic: '👫 Friends' },
+                { en: 'favorite cafe', de: 'Lieblingscafé', topic: '👫 Friends' },
+                { en: 'fun hobby', de: 'lustiges Hobby', topic: '👫 Friends' },
+                { en: 'cheap ticket', de: 'billiges Ticket', topic: '✈️ Travel' },
+                { en: 'beautiful beach', de: 'schöner Strand', topic: '✈️ Travel' },
+                { en: 'high mountain', de: 'hoher Berg', topic: '✈️ Travel' },
+                { en: 'small hotel', de: 'kleines Hotel', topic: '✈️ Travel' },
+                { en: 'long flight', de: 'langer Flug', topic: '✈️ Travel' },
+                { en: 'difficult exam', de: 'schwere Prüfung', topic: '📚 Education' },
+                { en: 'interesting book', de: 'interessantes Buch', topic: '📚 Education' },
+                { en: 'good teacher', de: 'guter Lehrer', topic: '📚 Education' },
+                { en: 'smart student', de: 'kluger Student', topic: '📚 Education' },
+                { en: 'quiet library', de: 'ruhige Bibliothek', topic: '📚 Education' },
+            ]
+        }, {
+            part: 4,
+            label: '3‑word: S+V+O',
+            desc: 'Simple sentences – food, work, friends',
+            sentences: [
+                { en: 'I eat bread', de: 'Ich esse Brot', topic: '🍔 Food' },
+                { en: 'You drink coffee', de: 'Du trinkst Kaffee', topic: '🍔 Food' },
+                { en: 'He cooks pasta', de: 'Er kocht Pasta', topic: '🍔 Food' },
+                { en: 'She bakes cake', de: 'Sie bäckt Kuchen', topic: '🍔 Food' },
+                { en: 'We buy fruit', de: 'Wir kaufen Obst', topic: '🍔 Food' },
+                { en: 'I do the project', de: 'Ich mache das Projekt', topic: '💼 Work' },
+                { en: 'You send the email', de: 'Du sendest die E-Mail', topic: '💼 Work' },
+                { en: 'He writes a report', de: 'Er schreibt einen Bericht', topic: '💼 Work' },
+                { en: 'She leads the team', de: 'Sie führt das Team', topic: '💼 Work' },
+                { en: 'We finish the deadline', de: 'Wir schaffen den Termin', topic: '💼 Work' },
+                { en: 'I help my friend', de: 'Ich helfe meinem Freund', topic: '👫 Friends' },
+                { en: 'You invite them', de: 'Du lädst sie ein', topic: '👫 Friends' },
+                { en: 'He visits us', de: 'Er besucht uns', topic: '👫 Friends' },
+                { en: 'She calls me', de: 'Sie ruft mich an', topic: '👫 Friends' },
+                { en: 'We celebrate together', de: 'Wir feiern zusammen', topic: '👫 Friends' },
+                { en: 'I pack my suitcase', de: 'Ich packe meinen Koffer', topic: '✈️ Travel' },
+                { en: 'You book a hotel', de: 'Du buchst ein Hotel', topic: '✈️ Travel' },
+                { en: 'He buys a ticket', de: 'Er kauft ein Ticket', topic: '✈️ Travel' },
+                { en: 'She goes to the airport', de: 'Sie geht zum Flughafen', topic: '✈️ Travel' },
+                { en: 'We travel to Italy', de: 'Wir reisen nach Italien', topic: '✈️ Travel' },
+                { en: 'I study German', de: 'Ich lerne Deutsch', topic: '📚 Education' },
+                { en: 'You read the book', de: 'Du liest das Buch', topic: '📚 Education' },
+                { en: 'He passes the exam', de: 'Er besteht die Prüfung', topic: '📚 Education' },
+                { en: 'She teaches math', de: 'Sie unterrichtet Mathe', topic: '📚 Education' },
+                { en: 'We attend school', de: 'Wir besuchen die Schule', topic: '📚 Education' },
+            ]
+        }, {
+            part: 5,
+            label: '3‑word: Adverbs',
+            desc: 'Add adverbs – daily life, work, travel',
+            sentences: [
+                { en: 'I eat quickly', de: 'Ich esse schnell', topic: '🍔 Food' },
+                { en: 'You drink slowly', de: 'Du trinkst langsam', topic: '🍔 Food' },
+                { en: 'He cooks well', de: 'Er kocht gut', topic: '🍔 Food' },
+                { en: 'She bakes beautifully', de: 'Sie bäckt schön', topic: '🍔 Food' },
+                { en: 'We eat together', de: 'Wir essen zusammen', topic: '🍔 Food' },
+                { en: 'I work hard', de: 'Ich arbeite hart', topic: '💼 Work' },
+                { en: 'You speak clearly', de: 'Du sprichst deutlich', topic: '💼 Work' },
+                { en: 'He writes neatly', de: 'Er schreibt ordentlich', topic: '💼 Work' },
+                { en: 'She manages well', de: 'Sie managt gut', topic: '💼 Work' },
+                { en: 'We collaborate closely', de: 'Wir arbeiten eng zusammen', topic: '💼 Work' },
+                { en: 'I meet regularly', de: 'Ich treffe mich regelmäßig', topic: '👫 Friends' },
+                { en: 'You call often', de: 'Du rufst oft an', topic: '👫 Friends' },
+                { en: 'He visits sometimes', de: 'Er besucht manchmal', topic: '👫 Friends' },
+                { en: 'She laughs happily', de: 'Sie lacht fröhlich', topic: '👫 Friends' },
+                { en: 'We party together', de: 'Wir feiern zusammen', topic: '👫 Friends' },
+                { en: 'I travel alone', de: 'Ich reise allein', topic: '✈️ Travel' },
+                { en: 'You fly direct', de: 'Du fliegst direkt', topic: '✈️ Travel' },
+                { en: 'He drives slowly', de: 'Er fährt langsam', topic: '✈️ Travel' },
+                { en: 'She arrives early', de: 'Sie kommt früh an', topic: '✈️ Travel' },
+                { en: 'We explore together', de: 'Wir erkunden zusammen', topic: '✈️ Travel' },
+                { en: 'I study daily', de: 'Ich lerne täglich', topic: '📚 Education' },
+                { en: 'You read carefully', de: 'Du liest sorgfältig', topic: '📚 Education' },
+                { en: 'He answers correctly', de: 'Er antwortet richtig', topic: '📚 Education' },
+                { en: 'She writes neatly', de: 'Sie schreibt ordentlich', topic: '📚 Education' },
+                { en: 'We discuss openly', de: 'Wir diskutieren offen', topic: '📚 Education' },
+            ]
+        }, {
+            part: 6,
+            label: '4‑word: Time',
+            desc: 'Add time expressions – daily, work, travel',
+            sentences: [
+                { en: 'I eat bread today', de: 'Ich esse heute Brot', topic: '🍔 Food' },
+                { en: 'You drink coffee now', de: 'Du trinkst jetzt Kaffee', topic: '🍔 Food' },
+                { en: 'He cooks pasta tonight', de: 'Er kocht heute Abend Pasta', topic: '🍔 Food' },
+                { en: 'She bakes cake tomorrow', de: 'Sie bäckt morgen Kuchen', topic: '🍔 Food' },
+                { en: 'We eat fruit every day', de: 'Wir essen jeden Tag Obst', topic: '🍔 Food' },
+                { en: 'I work on Monday', de: 'Ich arbeite am Montag', topic: '💼 Work' },
+                { en: 'You send emails daily', de: 'Du sendest täglich E-Mails', topic: '💼 Work' },
+                { en: 'He writes reports weekly', de: 'Er schreibt wöchentlich Berichte', topic: '💼 Work' },
+                { en: 'She leads meetings monthly', de: 'Sie leitet monatlich Besprechungen', topic: '💼 Work' },
+                { en: 'We finish projects quarterly', de: 'Wir schließen vierteljährlich Projekte ab', topic: '💼 Work' },
+                { en: 'I meet friends on weekends', de: 'Ich treffe Freunde am Wochenende', topic: '👫 Friends' },
+                { en: 'You call family today', de: 'Du rufst heute Familie an', topic: '👫 Friends' },
+                { en: 'He visits us every month', de: 'Er besucht uns jeden Monat', topic: '👫 Friends' },
+                { en: 'She parties on Friday', de: 'Sie feiert am Freitag', topic: '👫 Friends' },
+                { en: 'We celebrate birthdays together', de: 'Wir feiern gemeinsam Geburtstage', topic: '👫 Friends' },
+                { en: 'I travel to Paris next week', de: 'Ich reise nächste Woche nach Paris', topic: '✈️ Travel' },
+                { en: 'You book flights today', de: 'Du buchst heute Flüge', topic: '✈️ Travel' },
+                { en: 'He checks in tomorrow', de: 'Er checkt morgen ein', topic: '✈️ Travel' },
+                { en: 'She arrives on Saturday', de: 'Sie kommt am Samstag an', topic: '✈️ Travel' },
+                { en: 'We leave early tomorrow', de: 'Wir reisen morgen früh ab', topic: '✈️ Travel' },
+                { en: 'I study German every day', de: 'Ich lerne jeden Tag Deutsch', topic: '📚 Education' },
+                { en: 'You read books weekly', de: 'Du liest wöchentlich Bücher', topic: '📚 Education' },
+                { en: 'He takes exams in June', de: 'Er macht im Juni Prüfungen', topic: '📚 Education' },
+                { en: 'She teaches classes daily', de: 'Sie unterrichtet täglich Kurse', topic: '📚 Education' },
+                { en: 'We attend lectures on Monday', de: 'Wir besuchen montags Vorlesungen', topic: '📚 Education' },
+            ]
+        }, {
+            part: 7,
+            label: '4‑word: Location',
+            desc: 'Add location phrases – daily, work, travel',
+            sentences: [
+                { en: 'I live in Berlin', de: 'Ich wohne in Berlin', topic: '🏠 Daily' },
+                { en: 'You work in an office', de: 'Du arbeitest in einem Büro', topic: '💼 Work' },
+                { en: 'He sits in the garden', de: 'Er sitzt im Garten', topic: '🏠 Daily' },
+                { en: 'She eats in the kitchen', de: 'Sie isst in der Küche', topic: '🏠 Daily' },
+                { en: 'We sleep in the house', de: 'Wir schlafen im Haus', topic: '🏠 Daily' },
+                { en: 'I put it on the table', de: 'Ich lege es auf den Tisch', topic: '🏠 Daily' },
+                { en: 'You wait at the bus stop', de: 'Du wartest an der Bushaltestelle', topic: '✈️ Travel' },
+                { en: 'He hides under the bed', de: 'Er versteckt sich unter dem Bett', topic: '🏠 Daily' },
+                { en: 'She walks in the park', de: 'Sie geht im Park spazieren', topic: '🏠 Daily' },
+                { en: 'We meet at the station', de: 'Wir treffen uns am Bahnhof', topic: '✈️ Travel' },
+                { en: 'I study in the library', de: 'Ich lerne in der Bibliothek', topic: '📚 Education' },
+                { en: 'You work in a hospital', de: 'Du arbeitest in einem Krankenhaus', topic: '💼 Work' },
+                { en: 'He swims in the lake', de: 'Er schwimmt im See', topic: '✈️ Travel' },
+                { en: 'She shops at the market', de: 'Sie kauft auf dem Markt ein', topic: '🍔 Food' },
+                { en: 'We eat at the restaurant', de: 'Wir essen im Restaurant', topic: '🍔 Food' },
+                { en: 'I fly to Spain', de: 'Ich fliege nach Spanien', topic: '✈️ Travel' },
+                { en: 'You drive to the city', de: 'Du fährst in die Stadt', topic: '✈️ Travel' },
+                { en: 'He travels to the mountains', de: 'Er reist in die Berge', topic: '✈️ Travel' },
+                { en: 'She goes to the beach', de: 'Sie geht zum Strand', topic: '✈️ Travel' },
+                { en: 'We walk to the hotel', de: 'Wir laufen zum Hotel', topic: '✈️ Travel' },
+                { en: 'I teach at the university', de: 'Ich unterrichte an der Universität', topic: '📚 Education' },
+                { en: 'You learn in the classroom', de: 'Du lernst im Klassenzimmer', topic: '📚 Education' },
+                { en: 'He writes in his notebook', de: 'Er schreibt in sein Heft', topic: '📚 Education' },
+                { en: 'She reads in the garden', de: 'Sie liest im Garten', topic: '📚 Education' },
+                { en: 'We discuss in the group', de: 'Wir diskutieren in der Gruppe', topic: '👫 Friends' },
+            ]
+        }, {
+            part: 8,
+            label: '5‑word: Manner+Time',
+            desc: 'Combine manner and time – all topics',
+            sentences: [
+                { en: 'I eat bread quickly today', de: 'Ich esse heute schnell Brot', topic: '🍔 Food' },
+                { en: 'You drink coffee slowly now', de: 'Du trinkst jetzt langsam Kaffee', topic: '🍔 Food' },
+                { en: 'He cooks pasta well tonight', de: 'Er kocht heute Abend gut Pasta', topic: '🍔 Food' },
+                { en: 'She bakes cake beautifully tomorrow', de: 'Sie bäckt morgen schön Kuchen', topic: '🍔 Food' },
+                { en: 'We eat fruit together every day', de: 'Wir essen jeden Tag zusammen Obst', topic: '🍔 Food' },
+                { en: 'I work hard on Monday', de: 'Ich arbeite am Montag hart', topic: '💼 Work' },
+                { en: 'You send emails clearly daily', de: 'Du sendest täglich deutlich E-Mails', topic: '💼 Work' },
+                { en: 'He writes reports neatly weekly', de: 'Er schreibt wöchentlich ordentlich Berichte',
+                    topic: '💼 Work' },
+                { en: 'She leads meetings well monthly', de: 'Sie leitet monatlich gut Besprechungen', topic: '💼 Work' },
+                { en: 'We finish projects together quarterly', de: 'Wir schließen vierteljährlich gemeinsam Projekte ab',
+                    topic: '💼 Work' },
+                { en: 'I meet friends regularly on weekends', de: 'Ich treffe am Wochenende regelmäßig Freunde',
+                    topic: '👫 Friends' },
+                { en: 'You call family often today', de: 'Du rufst heute oft Familie an', topic: '👫 Friends' },
+                { en: 'He visits us sometimes every month', de: 'Er besucht uns jeden Monat manchmal',
+                    topic: '👫 Friends' },
+                { en: 'She parties happily on Friday', de: 'Sie feiert am Freitag fröhlich', topic: '👫 Friends' },
+                { en: 'We celebrate birthdays joyfully together', de: 'Wir feiern gemeinsam fröhlich Geburtstage',
+                    topic: '👫 Friends' },
+                { en: 'I travel to Paris alone next week', de: 'Ich reise nächste Woche allein nach Paris',
+                    topic: '✈️ Travel' },
+                { en: 'You book flights early today', de: 'Du buchst heute früh Flüge', topic: '✈️ Travel' },
+                { en: 'He checks in smoothly tomorrow', de: 'Er checkt morgen reibungslos ein', topic: '✈️ Travel' },
+                { en: 'She arrives safely on Saturday', de: 'Sie kommt am Samstag sicher an', topic: '✈️ Travel' },
+                { en: 'We leave quickly early tomorrow', de: 'Wir reisen morgen früh schnell ab', topic: '✈️ Travel' },
+                { en: 'I study German diligently every day', de: 'Ich lerne jeden Tag fleißig Deutsch',
+                    topic: '📚 Education' },
+                { en: 'You read books carefully weekly', de: 'Du liest wöchentlich sorgfältig Bücher',
+                    topic: '📚 Education' },
+                { en: 'He takes exams confidently in June', de: 'Er macht im Juni selbstbewusst Prüfungen',
+                    topic: '📚 Education' },
+                { en: 'She teaches classes enthusiastically daily', de: 'Sie unterrichtet täglich begeistert Kurse',
+                    topic: '📚 Education' },
+                { en: 'We attend lectures attentively on Monday', de: 'Wir besuchen montags aufmerksam Vorlesungen',
+                    topic: '📚 Education' },
+            ]
+        }, {
+            part: 9,
+            label: '5‑word: Questions',
+            desc: 'Questions – all topics',
+            sentences: [
+                { en: 'Do you eat bread today?', de: 'Isst du heute Brot?', topic: '🍔 Food' },
+                { en: 'Are you drinking coffee now?', de: 'Trinkst du jetzt Kaffee?', topic: '🍔 Food' },
+                { en: 'Does he cook pasta tonight?', de: 'Kocht er heute Abend Pasta?', topic: '🍔 Food' },
+                { en: 'Does she bake cake tomorrow?', de: 'Bäckt sie morgen Kuchen?', topic: '🍔 Food' },
+                { en: 'Do we eat fruit every day?', de: 'Essen wir jeden Tag Obst?', topic: '🍔 Food' },
+                { en: 'Do you work on Monday?', de: 'Arbeitest du am Montag?', topic: '💼 Work' },
+                { en: 'Do you send emails daily?', de: 'Sendest du täglich E-Mails?', topic: '💼 Work' },
+                { en: 'Does he write reports weekly?', de: 'Schreibt er wöchentlich Berichte?', topic: '💼 Work' },
+                { en: 'Does she lead meetings monthly?', de: 'Leitet sie monatlich Besprechungen?', topic: '💼 Work' },
+                { en: 'Do we finish projects quarterly?', de: 'Schließen wir vierteljährlich Projekte ab?',
+                    topic: '💼 Work' },
+                { en: 'Do you meet friends on weekends?', de: 'Triffst du am Wochenende Freunde?', topic: '👫 Friends' },
+                { en: 'Do you call family today?', de: 'Rufst du heute Familie an?', topic: '👫 Friends' },
+                { en: 'Does he visit you every month?', de: 'Besucht er dich jeden Monat?', topic: '👫 Friends' },
+                { en: 'Does she party on Friday?', de: 'Feiert sie am Freitag?', topic: '👫 Friends' },
+                { en: 'Do we celebrate birthdays together?', de: 'Feiern wir gemeinsam Geburtstage?', topic: '👫 Friends' },
+                { en: 'Do you travel to Paris next week?', de: 'Reist du nächste Woche nach Paris?', topic: '✈️ Travel' },
+                { en: 'Do you book flights today?', de: 'Buchst du heute Flüge?', topic: '✈️ Travel' },
+                { en: 'Does he check in tomorrow?', de: 'Checkt er morgen ein?', topic: '✈️ Travel' },
+                { en: 'Does she arrive on Saturday?', de: 'Kommt sie am Samstag an?', topic: '✈️ Travel' },
+                { en: 'Do we leave early tomorrow?', de: 'Reisen wir morgen früh ab?', topic: '✈️ Travel' },
+                { en: 'Do you study German every day?', de: 'Lernst du jeden Tag Deutsch?', topic: '📚 Education' },
+                { en: 'Do you read books weekly?', de: 'Liest du wöchentlich Bücher?', topic: '📚 Education' },
+                { en: 'Does he take exams in June?', de: 'Macht er im Juni Prüfungen?', topic: '📚 Education' },
+                { en: 'Does she teach classes daily?', de: 'Unterrichtet sie täglich Kurse?', topic: '📚 Education' },
+                { en: 'Do we attend lectures on Monday?', de: 'Besuchen wir montags Vorlesungen?', topic: '📚 Education' },
+            ]
+        }, {
+            part: 10,
+            label: '5‑word: Mixed',
+            desc: 'Everyday sentences – all topics combined',
+            sentences: [
+                { en: 'I have a small dog', de: 'Ich habe einen kleinen Hund', topic: '🏠 Daily' },
+                { en: 'She wants to buy bread', de: 'Sie will Brot kaufen', topic: '🍔 Food' },
+                { en: 'We need to go now', de: 'Wir müssen jetzt gehen', topic: '🏠 Daily' },
+                { en: 'They can speak English', de: 'Sie können Englisch sprechen', topic: '📚 Education' },
+                { en: 'He likes to play football', de: 'Er spielt gerne Fußball', topic: '👫 Friends' },
+                { en: 'I am learning German', de: 'Ich lerne Deutsch', topic: '📚 Education' },
+                { en: 'You are very kind', de: 'Du bist sehr nett', topic: '👫 Friends' },
+                { en: 'The weather is nice today', de: 'Das Wetter ist heute schön', topic: '✈️ Travel' },
+                { en: 'We have no milk', de: 'Wir haben keine Milch', topic: '🍔 Food' },
+                { en: 'They are coming later', de: 'Sie kommen später', topic: '👫 Friends' },
+                { en: 'Please sit down', de: 'Bitte setz dich', topic: '🏠 Daily' },
+                { en: 'I don\'t understand that', de: 'Ich verstehe das nicht', topic: '📚 Education' },
+                { en: 'Can you repeat that?', de: 'Kannst du das wiederholen?', topic: '📚 Education' },
+                { en: 'Where is the train station?', de: 'Wo ist der Bahnhof?', topic: '✈️ Travel' },
+                { en: 'How much does it cost?', de: 'Wie viel kostet das?', topic: '🍔 Food' },
+                { en: 'I love my job', de: 'Ich liebe meinen Job', topic: '💼 Work' },
+                { en: 'She is a good friend', de: 'Sie ist eine gute Freundin', topic: '👫 Friends' },
+                { en: 'We enjoy our vacation', de: 'Wir genießen unseren Urlaub', topic: '✈️ Travel' },
+                { en: 'He studies at university', de: 'Er studiert an der Universität', topic: '📚 Education' },
+                { en: 'They eat at home', de: 'Sie essen zu Hause', topic: '🍔 Food' },
+                { en: 'I work from home', de: 'Ich arbeite von zu Hause', topic: '💼 Work' },
+                { en: 'You travel for work', de: 'Du reist für die Arbeit', topic: '💼 Work' },
+                { en: 'He cooks for his friends', de: 'Er kocht für seine Freunde', topic: '🍔 Food' },
+                { en: 'She reads every morning', de: 'Sie liest jeden Morgen', topic: '📚 Education' },
+                { en: 'We go to the cinema', de: 'Wir gehen ins Kino', topic: '👫 Friends' },
+            ]
+        }];
+
+        // ============================================================
+        //  APP STATE
+        // ============================================================
+        let currentSection = 'main'; // 'main' or 'intro'
+        let currentPart = 0;
+        let showAnswers = false;
+        let autoSpeak = true;
+
+        // Results: main (250) + intro (25)
+        let results = {
+            main: MAIN_SENTENCES.map(part =>
+                part.sentences.map(() => ({ correct: false, checked: false }))
+            ),
+            intro: INTRO_QA.map(() => ({ correct: false, checked: false }))
+        };
+
+        // ============================================================
+        //  DOM REFS
+        // ============================================================
+        const partNav = document.getElementById('partNav');
+        const partTitle = document.getElementById('partTitle');
+        const partDesc = document.getElementById('partDesc');
+        const grid = document.getElementById('sentenceGrid');
+        const correctSpan = document.getElementById('correctCount');
+        const totalSpan = document.getElementById('totalCount');
+        const progressSpan = document.getElementById('progressPercent');
+        const resetBtn = document.getElementById('resetPartBtn');
+        const checkAllBtn = document.getElementById('checkAllBtn');
+        const completeMsg = document.getElementById('partCompleteMsg');
+        const showToggle = document.getElementById('showAnswersToggle');
+        const autoSpeakToggle = document.getElementById('autoSpeakToggle');
+        const sectionTabs = document.getElementById('sectionTabs');
+
+        // ============================================================
+        //  HELPERS
+        // ============================================================
+
+        function getCurrentData() {
+            if (currentSection === 'main') {
+                return {
+                    parts: MAIN_SENTENCES,
+                    results: results.main,
+                    totalParts: MAIN_SENTENCES.length,
+                    totalSentences: MAIN_SENTENCES.reduce((sum, p) => sum + p.sentences.length, 0)
+                };
+            } else {
+                return {
+                    parts: [{ part: 1, label: 'Self-Introduction Q&A', desc: '25 questions and model answers for introducing yourself',
+                        sentences: INTRO_QA.map(item => ({
+                            en: item.q,
+                            de: item.a,
+                            topic: '👤 Self',
+                            enAnswer: item.en,
+                            isIntro: true
+                        })) }],
+                    results: results.intro,
+                    totalParts: 1,
+                    totalSentences: INTRO_QA.length
+                };
+            }
+        }
+
+        function getResultsForPart(partIdx) {
+            if (currentSection === 'main') {
+                return results.main[partIdx] || [];
+            } else {
+                return results.intro;
+            }
+        }
+
+        function setResultForPart(partIdx, sentenceIdx, value) {
+            if (currentSection === 'main') {
+                if (!results.main[partIdx]) results.main[partIdx] = [];
+                results.main[partIdx][sentenceIdx] = value;
+            } else {
+                results.intro[sentenceIdx] = value;
+            }
+        }
+
+        // ============================================================
+        //  RENDER FUNCTIONS
+        // ============================================================
+
+        function renderPartNav() {
+            const data = getCurrentData();
+            partNav.innerHTML = '';
+            if (currentSection === 'main') {
+                data.parts.forEach((p, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'part-btn' + (idx === currentPart ? ' active' : '');
+                    const partResults = data.results[idx] || [];
+                    const checked = partResults.filter(r => r && r.checked).length;
+                    const total = partResults.length;
+                    const done = checked === total && total > 0;
+                    btn.innerHTML = `Part ${p.part} ${done ? '✅' : ''}`;
+                    btn.title = `${checked}/${total} done`;
+                    btn.dataset.idx = idx;
+                    btn.addEventListener('click', () => {
+                        currentPart = idx;
+                        renderAll();
+                    });
+                    partNav.appendChild(btn);
+                });
+            } else {
+                // Intro section - only one part
+                const btn = document.createElement('button');
+                btn.className = 'part-btn active';
+                const checked = data.results.filter(r => r && r.checked).length;
+                const total = data.results.length;
+                const done = checked === total && total > 0;
+                btn.innerHTML = `Intro Q&A ${done ? '✅' : ''}`;
+                btn.title = `${checked}/${total} done`;
+                btn.disabled = true;
+                partNav.appendChild(btn);
+            }
+        }
+
+        function renderSentences() {
+            const data = getCurrentData();
+            const partIdx = currentSection === 'main' ? currentPart : 0;
+            const part = data.parts[partIdx];
+            const partResults = getResultsForPart(partIdx);
+            grid.innerHTML = '';
+
+            if (!part || !part.sentences) return;
+
+            part.sentences.forEach((s, idx) => {
+                const res = partResults[idx] || { correct: false, checked: false };
+                const card = document.createElement('div');
+                card.className = 'sentence-card';
+                if (res.checked) {
+                    card.classList.add(res.correct ? 'correct' : 'incorrect');
+                }
+
+                // Number
+                const num = document.createElement('div');
+                num.className = 'num';
+                num.textContent = idx + 1;
+                card.appendChild(num);
+
+                // English / Question
+                const eng = document.createElement('div');
+                eng.className = 'eng';
+                if (s.isIntro) {
+                    eng.innerHTML = `❓ ${s.en} <span class="qa-badge">💬 Question</span>`;
+                } else {
+                    eng.innerHTML = `${s.en} <span class="topic-badge">${s.topic || ''}</span>`;
+                }
+                card.appendChild(eng);
+
+                // Input - ALWAYS editable (even in show mode for writing practice)
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'german-input';
+                input.placeholder = s.isIntro ? 'Type your answer...' : 'Type German...';
+                input.dataset.idx = idx;
+
+                // If checked, show the correct answer and disable
+                if (res.checked) {
+                    input.value = s.de;
+                    input.disabled = true;
+                    input.classList.add(res.correct ? 'correct' : 'incorrect');
+                } else if (showAnswers) {
+                    // SHOW MODE: show the answer BUT keep input editable for writing practice
+                    input.value = s.de;
+                    input.classList.add('show-mode');
+                    input.placeholder = '✏️ Practice writing here...';
+                    input.disabled = false;
+                    // Allow editing in show mode for practice
+                    input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            // Check against the answer
+                            const userAnswer = input.value.trim();
+                            const isCorrect = userAnswer.toLowerCase() === s.de.toLowerCase();
+                            setResultForPart(partIdx, idx, { correct: isCorrect, checked: true });
+                            renderAll();
+                            if (autoSpeak) speak(s.de);
+                        }
+                    });
+                } else {
+                    // Normal mode
+                    input.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') checkOne(idx);
+                    });
+                }
+                card.appendChild(input);
+
+                // Speaker button
+                const speakBtn = document.createElement('button');
+                speakBtn.className = 'btn-speak';
+                speakBtn.textContent = '🔊';
+                speakBtn.title = 'Hear pronunciation';
+                speakBtn.addEventListener('click', () => {
+                    speak(s.de);
+                });
+                card.appendChild(speakBtn);
+
+                // Status icon
+                const status = document.createElement('div');
+                status.className = 'status-icon';
+                if (res.checked) {
+                    status.textContent = res.correct ? '✅' : '❌';
+                } else if (showAnswers) {
+                    status.textContent = '✏️';
+                } else {
+                    status.textContent = '⬜';
+                }
+                card.appendChild(status);
+
+                // Show answer button (only when not in show mode and not checked)
+                if (!showAnswers && !res.checked) {
+                    const showBtn = document.createElement('button');
+                    showBtn.className = 'show-answer';
+                    showBtn.textContent = '👁️ Show';
+                    showBtn.addEventListener('click', () => {
+                        // Show the answer but keep input editable for practice
+                        input.value = s.de;
+                        input.classList.add('show-mode');
+                        input.disabled = false;
+                        input.placeholder = '✏️ Practice writing here...';
+                        status.textContent = '✏️';
+                        speak(s.de);
+                        // Remove the show button
+                        showBtn.remove();
+                        // Add a hint
+                        const hint = document.createElement('span');
+                        hint.style.cssText =
+                        'font-size:11px;color:#ff9800;font-weight:600;grid-row:3;grid-column:2;';
+                        hint.textContent = '✏️ Practice writing below';
+                        card.appendChild(hint);
+                    });
+                    card.appendChild(showBtn);
+                }
+
+                grid.appendChild(card);
+            });
+        }
+
+        function updateStats() {
+            const data = getCurrentData();
+            let totalCorrect = 0;
+            let totalChecked = 0;
+            let totalAll = 0;
+
+            // Main
+            results.main.forEach(part => {
+                part.forEach(r => {
+                    totalAll++;
+                    if (r && r.checked) {
+                        totalChecked++;
+                        if (r.correct) totalCorrect++;
+                    }
+                });
+            });
+
+            // Intro
+            results.intro.forEach(r => {
+                totalAll++;
+                if (r && r.checked) {
+                    totalChecked++;
+                    if (r.correct) totalCorrect++;
+                }
+            });
+
+            correctSpan.textContent = totalCorrect;
+            totalSpan.textContent = totalChecked;
+            const pct = totalAll > 0 ? Math.round((totalChecked / totalAll) * 100) : 0;
+            progressSpan.textContent = pct + '%';
+
+            // Part complete message
+            const partResults = getResultsForPart(currentSection === 'main' ? currentPart : 0);
+            const checked = partResults.filter(r => r && r.checked).length;
+            const total = partResults.length;
+            const allDone = checked === total && total > 0;
+            if (allDone) {
+                const correctInPart = partResults.filter(r => r && r.correct).length;
+                if (correctInPart / total >= 0.8) {
+                    completeMsg.textContent = '🎉 Great! 80%+ correct. Move to next part!';
+                } else {
+                    completeMsg.textContent = '📖 Keep practicing – aim for 80% correct.';
+                }
+            } else {
+                completeMsg.textContent = `✍️ ${checked}/${total} checked`;
+            }
+        }
+
+        function renderAll() {
+            renderPartNav();
+            const data = getCurrentData();
+            const partIdx = currentSection === 'main' ? currentPart : 0;
+            const part = data.parts[partIdx];
+            if (part) {
+                partTitle.textContent = currentSection === 'main' ? `Part ${part.part} – ${part.label}` :
+                    `👤 ${part.label}`;
+                partDesc.textContent = part.desc;
+            }
+            renderSentences();
+            updateStats();
+        }
+
+        // ============================================================
+        //  ACTIONS
+        // ============================================================
+
+        function checkOne(idx) {
+            const data = getCurrentData();
+            const partIdx = currentSection === 'main' ? currentPart : 0;
+            const part = data.parts[partIdx];
+            const input = document.querySelector(`.german-input[data-idx="${idx}"]`);
+            if (!input) return;
+
+            // If already checked, don't re-check
+            const existing = getResultsForPart(partIdx)[idx];
+            if (existing && existing.checked) return;
+
+            const userAnswer = input.value.trim();
+            const correctAnswer = part.sentences[idx].de;
+            const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+            setResultForPart(partIdx, idx, { correct: isCorrect, checked: true });
+            renderAll();
+            if (autoSpeak) {
+                speak(correctAnswer);
+            }
+        }
+
+        function checkAll() {
+            const data = getCurrentData();
+            const partIdx = currentSection === 'main' ? currentPart : 0;
+            const part = data.parts[partIdx];
+            const inputs = document.querySelectorAll('.german-input:not(:disabled)');
+            let anyChecked = false;
+
+            inputs.forEach((input) => {
+                const idx = parseInt(input.dataset.idx);
+                const existing = getResultsForPart(partIdx)[idx];
+                if (existing && existing.checked) return;
+
+                const userAnswer = input.value.trim();
+                const correctAnswer = part.sentences[idx].de;
+                const isCorrect = userAnswer.toLowerCase() === correctAnswer.toLowerCase();
+                setResultForPart(partIdx, idx, { correct: isCorrect, checked: true });
+                anyChecked = true;
+            });
+
+            renderAll();
+            if (autoSpeak && anyChecked) {
+                const firstInput = document.querySelector('.german-input:disabled');
+                if (firstInput) {
+                    const idx = parseInt(firstInput.dataset.idx);
+                    speak(part.sentences[idx].de);
+                }
+            }
+        }
+
+        function resetPart() {
+            const partIdx = currentSection === 'main' ? currentPart : 0;
+            const total = getResultsForPart(partIdx).length;
+            if (currentSection === 'main') {
+                results.main[partIdx] = Array.from({ length: total }, () => ({ correct: false, checked: false }));
+            } else {
+                results.intro = Array.from({ length: total }, () => ({ correct: false, checked: false }));
+            }
+            renderAll();
+        }
+
+        // ============================================================
+        //  SPEECH (TTS)
+        // ============================================================
+        function speak(text) {
+            if (!window.speechSynthesis) return;
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'de-DE';
+            utterance.rate = 0.8;
+            utterance.pitch = 1;
+            const voices = window.speechSynthesis.getVoices();
+            const deVoice = voices.find(v => v.lang.startsWith('de'));
+            if (deVoice) utterance.voice = deVoice;
+            window.speechSynthesis.speak(utterance);
+        }
+
+        if (window.speechSynthesis) {
+            window.speechSynthesis.getVoices();
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // ============================================================
+        //  EVENT BINDING
+        // ============================================================
+        resetBtn.addEventListener('click', resetPart);
+        checkAllBtn.addEventListener('click', checkAll);
+
+        showToggle.addEventListener('change', () => {
+            showAnswers = showToggle.checked;
+            renderAll();
+        });
+
+        autoSpeakToggle.addEventListener('change', () => {
+            autoSpeak = autoSpeakToggle.checked;
+        });
+
+        // Section tabs
+        document.querySelectorAll('.section-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentSection = tab.dataset.section;
+                currentPart = 0;
+                renderAll();
+            });
+        });
+
+        // ============================================================
+        //  INIT
+        // ============================================================
+        renderAll();
+        window.checkOne = checkOne;
+    </script>
+
+</body>
+</html>
